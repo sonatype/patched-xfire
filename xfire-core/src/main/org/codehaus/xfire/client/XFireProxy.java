@@ -45,10 +45,12 @@ public class XFireProxy
     {
         String methodName = method.getName();
         Class[] parameterTypes = method.getParameterTypes();
-        if (log.isDebugEnabled())
-        {
-            log.debug("Method [" + methodName + "] " + ((args == null) ? "" : Arrays.asList(args).toString()));
-        }
+
+//       commenting out, this prints passwords to logs
+//        if (log.isDebugEnabled())
+//        {
+//            log.debug("Method [" + methodName + "] " + ((args == null) ? "" : Arrays.asList(args).toString()));
+//        }
 
         Object result = handleCanonicalMethods(methodName, parameterTypes, args);
 

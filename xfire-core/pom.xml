@@ -7,7 +7,15 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>xfire-core</artifactId>
   <name>XFire Core</name>
-  <version>1.2.6</version>
+  <version>1.2.6-sonatype</version>
+  
+  <distributionManagement>
+    <repository>
+      <id>nexus</id>
+      <url>https://repository.sonatype.org/content/repositories/third-party/</url>
+    </repository>
+  </distributionManagement>
+  
   <dependencies>
     <dependency>
       <groupId>javax.activation</groupId>
