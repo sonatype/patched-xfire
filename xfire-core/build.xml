@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="jar" name="xfire-core" basedir=".">
+    <import file="../build-common.xml"/>
+
+    <path id="module.classpath"/>
+
+    <target name="get-deps" depends="xfire.get-deps">
+        <get-dep artifact="commons-httpclient" version="3.0" dir="${master.libdir}"/>
+        <get-dep artifact="commons-codec" version="1.3" dir="${master.libdir}"/>
+        <get-dep artifact="org.mortbay.jetty" group="jetty" version="5.1.3"/>
+        <get-dep artifact="XmlSchema" group="org.apache.ws.commons" version="1.1"/>
+        <get-dep artifact="junit" version="3.8.1" dir="${master.libdir}"/>
+    </target>
+</project>

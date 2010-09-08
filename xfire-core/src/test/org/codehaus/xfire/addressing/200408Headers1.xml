@@ -1,0 +1,17 @@
+<S:Header xmlns:S="http://www.w3.org/2003/05/soap-envelope"
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+  xmlns:fabrikam="http://www.fabrikam123.example/svc53">
+  <wsa:MessageID>uuid:aaaabbbb-cccc-dddd-eeee-wwwwwwwwwww</wsa:MessageID>
+  <wsa:RelatesTo>uuid:aaaabbbb-cccc-dddd-eeee-ffffffffffff</wsa:RelatesTo>
+  <wsa:To S:mustUnderstand="1">http://business456.example/client1</wsa:To>
+  <wsa:Action>http://fabrikam123.example/mail/DeleteAck</wsa:Action>
+  <wsa:ReplyTo>
+    <wsa:Address>http://business456.example/client1</wsa:Address>
+    <wsa:ReferenceProperties>
+      <fabrikam:CustomerKey>123456789</fabrikam:CustomerKey>
+    </wsa:ReferenceProperties>
+    <wsa:ReferenceParameters>
+      <fabrikam:ShoppingCart>ABCDEFG</fabrikam:ShoppingCart>
+    </wsa:ReferenceParameters>
+  </wsa:ReplyTo>
+</S:Header>

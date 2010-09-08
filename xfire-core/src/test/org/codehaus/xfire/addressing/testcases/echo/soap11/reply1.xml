@@ -1,0 +1,11 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:wsa="http://www.w3.org/2005/08/addressing">
+ <env:Header>
+  <wsa:Action>http://example.org/action/echoOut</wsa:Action>
+ </env:Header>
+ <env:Body>
+  <m:echo xmlns:m="http://example.org/echo">Echo This Text</m:echo>
+ </env:Body>
+</env:Envelope>

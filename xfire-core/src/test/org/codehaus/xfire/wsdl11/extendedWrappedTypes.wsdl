@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://enterprise/location/v1"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+  xmlns:location="http://enterprise/location/v1">
+  
+    <wsdl:types>
+      <xs:schema elementFormDefault="qualified" targetNamespace="http://enterprise/location/v1">
+    <xs:complexType name="exception" >
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" maxOccurs="1"  minOccurs="0" />
+            <xs:element name="cause" type="xs:string" maxOccurs="1" minOccurs="0" />
+            <xs:element name="code" type="xs:int" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="baseRequest" abstract="true">
+        <xs:sequence>
+            <xs:element name="context" type="location:context" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="baseResponse" abstract="true">
+        <xs:sequence>
+            <xs:element name="context" type="location:responseContext"  minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="isError" type="xs:boolean" use="required"/> 
+    </xs:complexType>
+    
+    <xs:complexType name="context">
+        <xs:sequence>
+            <xs:element name="parentTransactionId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="source" type="xs:string" maxOccurs="1"/>
+            <xs:element name="transactionId" type="xs:string" maxOccurs="1"/>
+            <xs:element name="version" type="xs:string" minOccurs="1" maxOccurs="1"  fixed="v1_0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="responseContext">
+        <xs:complexContent>
+            <xs:extension base="location:context">
+                <xs:sequence>
+                    <xs:element name="exception" type="location:exception" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="version">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="telecomLocale">
+        <xs:sequence>
+            <xs:element name="networkLocation" type="location:networkLocation" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="matchType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="lata" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="npa" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="nxx" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="nodeType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="busOrgId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="locationType" type="location:locationType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="nodeCategory" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="locationType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ONNET" />
+            <xs:enumeration value="OFFNET" />
+        </xs:restriction>
+    </xs:simpleType>    
+    
+    <xs:simpleType name="enterpriseKey">
+        <xs:restriction base="xs:long"/>
+    </xs:simpleType>
+    
+    <xs:simpleType  name="locationNum">
+        <xs:restriction base="xs:long"/>
+    </xs:simpleType>
+
+    <xs:simpleType  name="clli">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    
+    <xs:complexType name="FRAB">
+        <xs:sequence>
+            <xs:element name="floor" type="xs:string" minOccurs="0"/>
+            <xs:element name="room" type="xs:string" minOccurs="0"/>
+            <xs:element name="aisle" type="xs:string" minOccurs="0"/>
+            <xs:element name="bay" type="xs:string" minOccurs="0"/>
+            <xs:element name="suite" type="xs:string" minOccurs="0"/>            
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="latLong">
+        <xs:sequence>
+            <xs:element name="latitude" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="longitude" type="xs:decimal" minOccurs="0"/>            
+            <xs:element name="latDirection" type="xs:string" minOccurs="0"/>
+            <xs:element name="longDirection" type="xs:string" minOccurs="0"/>            
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="cityName">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="country">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="stateProvinceName">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    
+    <xs:simpleType name="postalCode">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:simpleType name="addressLine">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    
+    <xs:complexType name="postalAddress">
+        <xs:sequence>
+            <xs:element name="address1" type="location:addressLine" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="address2" type="location:addressLine" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="city" type="location:cityName" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="state" type="location:stateProvinceName" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="country" type="location:country" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="postalCode" type="location:postalCode" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="networkLocation">
+        <xs:sequence>
+            <xs:element name="locationNum" type="location:locationNum" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="clli" type="location:clli" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="latLong" type="location:latLong" minOccurs="0" maxOccurs="1"/>            
+            <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="address" type="location:postalAddress" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="buildingName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="FRAB" type="location:FRAB" minOccurs="0" maxOccurs="1"/>            
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="searchOrderableLocationsFilterType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ONNET" />
+            <xs:enumeration value="OFFNET" />
+            <xs:enumeration value="BOTH"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="searchType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="LIKE" />
+            <xs:enumeration value="EXACT" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="swcCriteria">
+        <xs:sequence>
+            <xs:element name="locationNum" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="netNodeEID" type="xs:string" minOccurs="0"  maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="demarc">
+        <xs:sequence>
+            <xs:element name="telecomLocale" type="location:telecomLocale" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="servingWireCenter" type="location:networkLocation" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>    
+    
+    <!-- *********************************************************************** -->
+    <!--  Messages -->
+    <!-- *********************************************************************** -->
+    <xs:element name="getAddressAndRateCenter" type="location:getAddressAndRateCenter"/>
+    <xs:complexType name="getAddressAndRateCenter">
+        <xs:complexContent>
+            <xs:extension base="location:baseRequest">
+                <xs:sequence>
+                    <xs:element name="telecomLocale" type="location:telecomLocale"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="getAddressAndRateCenterResponse" type="location:getAddressAndRateCenterResponse"/>
+    <xs:complexType name="getAddressAndRateCenterResponse">
+        <xs:complexContent>
+            <xs:extension base="location:baseResponse">
+                <xs:sequence>
+                    <xs:element name="demarc" type="location:demarc" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="findOrderableLocationsByAddress" type="location:findOrderableLocationsByAddress"/>
+    <xs:complexType name="findOrderableLocationsByAddress">
+        <xs:complexContent>
+            <xs:extension base="location:baseRequest">
+                <xs:sequence>
+                    <xs:element name="telecomLocale" type="location:telecomLocale"/>
+                    <xs:element name="filterType" type="location:searchOrderableLocationsFilterType"/>
+                    <xs:element name="searchType" type="location:searchType"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:element name="findOrderableLocationsByAddressResponse" type="location:findOrderableLocationsByAddressResponse"/>
+    <xs:complexType name="findOrderableLocationsByAddressResponse">
+        <xs:complexContent>
+            <xs:extension base="location:baseResponse">
+                <xs:sequence>
+                  <xs:element name="demarc" type="location:demarc" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    
+  </xs:schema>
+  </wsdl:types>
+    
+  <!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
+  <!--                          WSDL Messages                                  -->
+  <!-- *********************************************************************** -->
+  <!-- *********************************************************************** -->
+    <wsdl:message name="getAddressAndRateCenterMsg">
+        <wsdl:part name="parameters" element="location:getAddressAndRateCenter"/>
+    </wsdl:message>
+    <wsdl:message name="getAddressAndRateCenterResponseMsg">
+        <wsdl:part name="parameters" element="location:getAddressAndRateCenterResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="findOrderableLocationsByAddressMsg">
+        <wsdl:part name="parameters" element="location:findOrderableLocationsByAddress"/>
+    </wsdl:message>
+    <wsdl:message name="findOrderableLocationsByAddressResponseMsg">
+        <wsdl:part name="parameters" element="location:findOrderableLocationsByAddressResponse"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="EnterpriseLocationPort">
+        <wsdl:operation name="getAddressAndRateCenter">
+            <wsdl:input message="location:getAddressAndRateCenterMsg"/>
+            <wsdl:output message="location:getAddressAndRateCenterResponseMsg"/>
+        </wsdl:operation>
+        <wsdl:operation name="findOrderableLocationsByAddress">
+            <wsdl:input message="location:findOrderableLocationsByAddressMsg"/>
+            <wsdl:output message="location:findOrderableLocationsByAddressResponseMsg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:binding name="EnterpriseLocationBinding" type="location:EnterpriseLocationPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getAddressAndRateCenter">
+            <soap:operation style="document" soapAction="getAddressAndRateCenter"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findOrderableLocationsByAddress">
+            <soap:operation style="document" soapAction="findOrderableLocationsByAddress"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    
+    <wsdl:service name="EnterpriseLocation">
+        <wsdl:port name="EnterpriseLocationPort" binding="location:EnterpriseLocationBinding">
+            <soap:address location="http://example.com/enterprise/EnterpriseLocation"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

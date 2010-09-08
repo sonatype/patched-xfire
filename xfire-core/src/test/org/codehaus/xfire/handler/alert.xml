@@ -1,0 +1,13 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+ <env:Header>
+  <n:alertcontrol xmlns:n="http://example.org/alertcontrol">
+   <n:priority>1</n:priority>
+   <n:expires>2001-06-22T14:00:00-05:00</n:expires>
+  </n:alertcontrol>
+ </env:Header>
+ <env:Body>
+  <m:alert xmlns:m="http://example.org/alert">
+   <m:msg>Pick up Mary at school at 2pm</m:msg>
+  </m:alert>
+ </env:Body>
+</env:Envelope>

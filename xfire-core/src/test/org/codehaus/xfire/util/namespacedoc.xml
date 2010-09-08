@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PriceandAvailabilityResponse
+	xmlns="http://www.paraware.com/2005/PriceAndAvailabilityCheckResponse"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Header>
+		<Reference>
+			<RefNum>T</RefNum>
+		</Reference>
+	</Header>
+	<Body>
+		<PartNumbers>
+			<BuyerPartNumber />
+			<SellerPartNumber>3M 1100</SellerPartNumber>
+			<UPC xsi:nil="true" />
+		</PartNumbers>
+	</Body>
+</PriceandAvailabilityResponse>

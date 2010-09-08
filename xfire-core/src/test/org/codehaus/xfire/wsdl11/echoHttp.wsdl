@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:tns="urn:Echo" 
+  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Echo" name="Echo"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:Echo" elementFormDefault="qualified" 
+      attributeFormDefault="qualified">
+      <xsd:element name="echoRequest" type="xsd:string"/>
+      <xsd:element name="echoResponse" type="xsd:string"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="echoRequest">
+    <wsdl:part element="tns:echoRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="echoResponse">
+    <wsdl:part element="tns:echoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="EchoPortType">
+    <wsdl:operation name="echo">
+      <wsdl:input message="tns:echoRequest" name="echoRequest"/>
+      <wsdl:output message="tns:echoResponse" name="echoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EchoHttpPostBinding" type="tns:EchoPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="echo">
+      <http:operation location="/Echo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Echo">
+    <wsdl:port binding="tns:EchoHttpPostBinding" name="EchoHttpPort">
+      <http:address location="http://localhost:8080/xfire/services/Echo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

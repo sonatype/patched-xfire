@@ -1,0 +1,18 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+ xmlns:wsa="http://www.w3.org/2005/08/addressing">
+ <env:Header>
+  <wsa:Action>http://example.org/action/echoIn</wsa:Action>
+  <wsa:MessageID>urn:uuid:3396DE87-A8FD-4157-A220-72A05351CC4A</wsa:MessageID>
+  <wsa:ReplyTo>
+   <wsa:Address>http://www.w3.org/2005/08/addressing/anonymous</wsa:Address>
+   <wsa:ReferenceParameters xmlns:customer="http://example.org/customer">
+    <customer:CustomerKey>Key#123456789</customer:CustomerKey>
+   </wsa:ReferenceParameters>
+  </wsa:ReplyTo>
+ </env:Header>
+ <env:Body>
+  <m:echo xmlns:m="http://example.org/echo">Echo This Text</m:echo>
+ </env:Body>
+</env:Envelope>

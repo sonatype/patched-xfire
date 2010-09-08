@@ -1,0 +1,21 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+  xmlns:wsa="http://www.w3.org/2005/08/addressing"
+  xmlns:echo="http://example.org/echo">
+ <env:Header>
+  <customer:CustomerKey xmlns:customer="http://example.org/customer"
+    wsa:isReferenceParameter="true">Fault#123456789</customer:CustomerKey>
+  <wsa:MessageID>urn:uuid:36604105-9A63-4D83-9214-5D5C3DEF62FB</wsa:MessageID>
+ </env:Header>
+  <env:Body>
+    <env:Fault>
+      <env:Code>
+        <env:Value>echo:EmptyEchoString</env:Value>
+      </env:Code>
+      <env:Reason>
+        <env:Text xml:lang="en-US">The echo string was empty.</env:Text>
+      </env:Reason>
+    </env:Fault>
+  </env:Body>
+</env:Envelope>

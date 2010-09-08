@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <SOAP-ENV:Body>
+         <ItemLookupResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2004-10-19">
+            <OperationRequest>
+               <HTTPHeaders>
+                  <Header Name="UserAgent" Value="XFire Client +http://xfire.codehaus.org"></Header>
+               </HTTPHeaders>
+               <RequestId>1XRWTVFCPC32PAEX00NQ</RequestId>
+               <Arguments>
+                  <Argument Name="Service" Value="AWSECommerceService"></Argument>
+               </Arguments>
+               <RequestProcessingTime>0.00896692276000977</RequestProcessingTime>
+            </OperationRequest>
+            <Items>
+               <Request>
+                  <IsValid>True</IsValid>
+                  <ItemLookupRequest>
+                     <IdType>ASIN</IdType>
+                     <ItemId>0486411214</ItemId>
+                  </ItemLookupRequest>
+               </Request>
+               <Item>
+                  <ASIN>0486411214</ASIN>
+                  <DetailPageURL>http://www.amazon.com/gp/redirect.html?tag=dandiephosblo-20&amp;location=/exec/obidos/ASIN/0486411214%3FSubscriptionId=1E5AY4ZG53H4AMC8QH82</DetailPageURL>
+                  <ItemAttributes>
+                     <Author>Plato</Author>
+                     <Author>Benjamin Jowett</Author>
+                     <ProductGroup>Book</ProductGroup>
+                     <Title>The Republic (Dover Thrift Editions)</Title>
+                  </ItemAttributes>
+               </Item>
+            </Items>
+         </ItemLookupResponse>
+      </SOAP-ENV:Body>
+   </SOAP-ENV:Envelope>

@@ -1,0 +1,14 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+ xmlns:wsa="http://www.w3.org/2005/08/addressing">
+ <env:Header>
+  <wsa:Action>http://example.org/action/echoOut</wsa:Action>
+  <wsa:MessageID>urn:uuid:898D92BE-2B9A-4B20-B516-713F2F473487</wsa:MessageID>
+  <customer:CustomerKey xmlns:customer="http://example.org/customer"
+    wsa:isReferenceParameter="true">Key#123456789</customer:CustomerKey>
+ </env:Header>
+ <env:Body>
+  <m:echo xmlns:m="http://example.org/echo">Echo This Text</m:echo>
+ </env:Body>
+</env:Envelope>

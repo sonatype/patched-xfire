@@ -1,0 +1,3 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Echo">
+  <!-- TODO -->
+</wsdl:definitions>

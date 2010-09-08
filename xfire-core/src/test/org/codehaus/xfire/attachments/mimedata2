@@ -1,0 +1,21 @@
+
+------=_Part_0_1696092.1145592699395
+Content-Type: application/xop+xml; charset=UTF-8; type="text/xml; charset=UTF-8"
+Content-Transfer-Encoding: binary
+Content-ID: <soap.xml@xfire.codehaus.org>
+
+<?xml version='1.0' encoding='UTF-8'?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soap:Body><hi /></soap:Body></soap:Envelope>
+------=_Part_0_1696092.1145592699395
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: 7bit
+Content-ID: <test.jpg>
+
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+ <env:Header/>
+ <env:Body>
+  <m:echo xmlns:m="urn:Echo">
+   <m:in0>Yo Yo</m:in0>
+  </m:echo>
+ </env:Body>
+</env:Envelope>
+------=_Part_0_1696092.1145592699395--

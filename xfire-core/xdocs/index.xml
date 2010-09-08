@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<document>
+
+  <properties>
+    <title>Main</title>
+    <author email="dan@envoisolutions.com">Dan Diephouse</author>
+  </properties>
+
+  <body>
+    <section name="Main">
+      <p>
+        These are the Maven generated reports for XFire.
+      </p>
+    </section>
+ </body>
+</document>

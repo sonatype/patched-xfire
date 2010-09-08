@@ -1,0 +1,24 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<soap12:Envelope xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"
+ xmlns:wsa="http://www.w3.org/2005/08/addressing">
+  <soap12:Header>
+    <wsa:Action>http://www.w3.org/2005/08/addressing/fault</wsa:Action>
+  </soap12:Header>
+  <soap12:Body>
+    <soap12:Fault>
+      <soap12:Code>
+        <soap12:Value>soap12:Sender</soap12:Value>
+        <soap12:Subcode>
+          <soap12:Value>wsa:InvalidAddressingHeader</soap12:Value>
+        </soap12:Subcode>
+      </soap12:Code>
+      <soap12:Reason>
+        <soap12:Text xml:lang="en">A header representing a Message Addressing Property is not valid and the message cannot be processed</soap12:Text>
+      </soap12:Reason>
+      <soap12:Detail>
+        <wsa:ProblemHeaderQName>wsa:FaultTo</wsa:ProblemHeaderQName>
+      </soap12:Detail>   
+    </soap12:Fault>
+  </soap12:Body>
+</soap12:Envelope>

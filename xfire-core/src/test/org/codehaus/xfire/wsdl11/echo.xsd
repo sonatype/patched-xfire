@@ -1,0 +1,17 @@
+<xsd:schema targetNamespace="urn:Echo:schema"
+      elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="echo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="text" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="echoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="text" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>

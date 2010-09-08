@@ -1,0 +1,9 @@
+   <S:Header xmlns:S="http://www.w3.org/2003/05/soap-envelope"      
+                xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <wsa:MessageID>http://example.com/6B29FC40-CA47-1067-B31D-00DD010662DA</wsa:MessageID>
+    <wsa:ReplyTo>
+      <wsa:Address>http://example.com/business/client1</wsa:Address>
+    </wsa:ReplyTo>
+    <wsa:To>http://example.com/fabrikam/Purchasing</wsa:To>
+    <wsa:Action>http://example.com/fabrikam/SubmitPO</wsa:Action>
+   </S:Header>

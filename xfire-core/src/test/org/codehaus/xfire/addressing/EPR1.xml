@@ -1,0 +1,9 @@
+<wsa:EndpointReference
+     xmlns:wsa="http://www.w3.org/2005/02/addressing"
+     xmlns:fabrikam="http://example.com/fabrikam"
+     xmlns:wsdli="http://www.w3.org/2004/08/wsdl-instance"
+     wsdli:wsdlLocation="http://example.com/fabrikam
+       http://example.com/fabrikam/fabrikam.wsdl">
+   <wsa:Address>http://example.com/fabrikam/acct</wsa:Address>
+   <wsa:InterfaceName>fabrikam:Inventory</wsa:InterfaceName>
+</wsa:EndpointReference>

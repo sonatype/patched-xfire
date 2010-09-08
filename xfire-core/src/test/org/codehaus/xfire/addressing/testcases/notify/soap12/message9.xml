@@ -1,0 +1,23 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+ xmlns:wsa="http://www.w3.org/2005/08/addressing"
+ xmlns:customer="http://example.org/customer">
+ <env:Header>
+  <wsa:Action>http://example.org/action/notify</wsa:Action>
+  <wsa:ReplyTo>
+   <wsa:Address>http://www.w3.org/2005/08/addressing/none</wsa:Address>
+   <wsa:ReferenceParameters customer:level="premium"> 
+    <customer:CustomerKey>Key#123456789</customer:CustomerKey>
+   </wsa:ReferenceParameters>
+   <wsa:Metadata customer:total="1">
+   </wsa:Metadata>
+   <customer:Metadata>
+	<customer:extraStuff>This should be ignored</customer:extraStuff>
+   </customer:Metadata>
+  </wsa:ReplyTo>
+ </env:Header>
+ <env:Body>
+  <m:notify xmlns:m="http://example.org/notify">Message 2</m:notify>
+ </env:Body>
+</env:Envelope>

@@ -1,0 +1,15 @@
+<?xml version='1.0' ?>
+<!-- $Id$ -->
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+ xmlns:wsa="http://www.w3.org/2005/08/addressing">
+ <env:Header>
+  <wsa:Action>http://example.org/action/echoIn</wsa:Action>
+  <wsa:MessageID>urn:uuid:C85E3BB7-EA14-4221-8293-BF0C3CE485F3</wsa:MessageID>
+  <wsa:ReplyTo>
+	<wsa:Address>urn:xfire:channel:backchannel</wsa:Address>
+  </wsa:ReplyTo>
+ </env:Header>
+ <env:Body>
+  <m:echo xmlns:m="http://example.org/echo">Echo This Text</m:echo>
+ </env:Body>
+</env:Envelope>

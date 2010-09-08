@@ -1,0 +1,8 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+ <env:Header/>
+ <env:Body>
+  <m:echo xmlns:m="urn:Echo">
+   <m:in0>Yo Yo</m:in0>
+  </m:echo>
+ </env:Body>
+</env:Envelope>

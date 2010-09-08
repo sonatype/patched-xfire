@@ -1,0 +1,10 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+ <env:Header>
+   <e:Version xmlns:e="http://xfire.codehaus.org/examples/router">2</e:Version>
+ </env:Header>
+ <env:Body>
+  <m:echo xmlns:m="http://xfire.codehaus.org/Echo2">
+   <m:in0>Yo Yo</m:in0>
+  </m:echo>
+ </env:Body>
+</env:Envelope>

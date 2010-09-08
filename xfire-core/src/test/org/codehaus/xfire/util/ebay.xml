@@ -1,0 +1,5 @@
+<GetUserRequest xmlns="urn:ebay:api:eBayAPI" xmlns:urn="urn:ebay:apis:eBLBaseComponents" >
+  <urn:ErrorLanguage>en</urn:ErrorLanguage>
+  <urn:Version>383</urn:Version>
+  <UserID>dandiep_test</UserID>
+</GetUserRequest>

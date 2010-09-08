@@ -1,0 +1,16 @@
+target
+*~
+*.log*
+junit*.properties
+*.iws
+.classpath
+.project
+bin
+build.properties
+.settings
+*.lnk
+*.sh
+*.ajsym
+*.lst
+*.jar
+*.wtpmodules

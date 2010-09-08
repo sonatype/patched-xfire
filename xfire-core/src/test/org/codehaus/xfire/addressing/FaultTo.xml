@@ -1,0 +1,18 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+	<env:Header xmlns:S="http://www.w3.org/2003/05/soap-envelope"
+		xmlns:wsa="http://www.w3.org/2005/08/addressing">
+		<wsa:MessageID>
+			http://example.com/6B29FC40-CA47-1067-B31D-00DD010662DA
+		</wsa:MessageID>
+		<wsa:To>xfire.local://Echo</wsa:To>
+		<wsa:Action>http://example.com/Echo</wsa:Action>
+		<wsa:FaultTo>
+		  <wsa:Address>xfire.local://FaultReceiver</wsa:Address>
+		</wsa:FaultTo>
+	</env:Header>
+	<env:Body>
+		<m:echo xmlns:m="urn:Echo">
+			<m:in0>Yo Yo</m:in0>
+		</m:echo>
+	</env:Body>
+</env:Envelope>
